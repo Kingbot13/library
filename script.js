@@ -42,8 +42,14 @@ function updateDisplay(){
 
         author.textContent = item.author;
         title.textContent = item.title;
-        pages.textContent = item.pages;
-        isRead.textContent = item.isRead;
+        pages.textContent = `Pages: ${item.pages}`;
+
+        if (item.isRead === true){
+            isRead.textContent = "Read: Yes";
+
+        } else {
+            isRead.textContent = "Read: No";
+        };
 
         let textArray = [author, title, pages, isRead];
 

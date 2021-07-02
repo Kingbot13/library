@@ -29,10 +29,13 @@ input{
 
 .display{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .card{
     background-color: burlywood;
+    width: 150px;
+    height: 200px;
 }
 
 .hidden{
