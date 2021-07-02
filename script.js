@@ -6,8 +6,6 @@ const log = console.log;
 
 let myLibrary = [];
 
-myLibrary.push(book1);
-
 function Book(author, title, pages, read){
     this.author = author;
     this.title = title;
