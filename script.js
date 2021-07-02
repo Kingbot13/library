@@ -6,10 +6,6 @@ const log = console.log;
 
 let myLibrary = [];
 
-// manually create book and push to array for testing
-
-const book1 = new Book("Bob", "Bob The Builder", "200", true);
-
 myLibrary.push(book1);
 
 function Book(author, title, pages, read){
