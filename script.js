@@ -22,7 +22,7 @@ function addBook(){
     let author = document.querySelector("#author").value;
     let title = document.querySelector("#title").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read");
+    let read = document.querySelector("#read").value;
 
     let book = new Book(author, title, pages, read);
 
@@ -50,7 +50,7 @@ function updateDisplay(){
         title.textContent = item.title;
         pages.textContent = item.pages;
         isRead.textContent = item.isRead;
-        
+
         let textArray = [author, title, pages, isRead];
 
         // loop through text content to append to card
@@ -62,4 +62,11 @@ function updateDisplay(){
     });
 };
 
-updateDisplay();
+// updateDisplay();
+
+// Event listener for submit button
+
+submitBtn.addEventListener("click", () => {
+    addBook();
+    updateDisplay();
+});
