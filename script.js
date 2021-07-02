@@ -27,8 +27,6 @@ function addBook(){
     myLibrary.push(book);
 };
 
-log(myLibrary);
-
 // loop through array and update display
 
 function updateDisplay(){
