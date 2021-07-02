@@ -4,10 +4,40 @@
 
 body{
     font-size: 16px;
+    text-align: center;
+}
+
+form{
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto;
+    text-align: left;
+}
+
+input{
+    margin-left: 25px;
 }
 
 .container{
     display: flex;
     width: 600px;
-    height: 800px;
+    height: 500px;
+    justify-content: center;
+    background-color: beige;
+    margin: auto;
 }
+
+.display{
+    display: flex;
+}
+
+.card{
+    background-color: burlywood;
+}
+
+.hidden{
+    display: hidden;
+}
+

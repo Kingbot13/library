@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button>NEW BOOK</button>
+    <button id="new-book">NEW BOOK</button>
     <div class="container">
         <form action="">
-            <label for="author">Author<input type="text" id="author" name="author" placeholder="Author"></label>
-            <label for="title">Title<input type="text" id="title" name="title" placeholder="Title"></label>
-            <label for="pages">Number of Pages<input type="text" id="pages" name="pages" placeholder="Number of pages"></label>
-            <label for="read">Book Has Been Read<input type="checkbox" id="read" name="read" placeholder="Author"></label>
-            <button type="submit">Submit</button>
+            <label for="author"><input type="text" id="author" name="author" placeholder="Author"></label>
+            <label for="title"><input type="text" id="title" name="title" placeholder="Title"></label>
+            <label for="pages"><input type="text" id="pages" name="pages" placeholder="Number of pages"></label>
+            <label for="read"><input type="checkbox" id="read" name="read" placeholder="Author"></label>
+            <button type="submit" id="submit">Submit</button>
         </form>
+    </div>
+    <div class="display">
+        <div class="card">
+            <p>J.K Rowling</p>
+            <p>Harry Potter</p>
+            <p>250 pages</p>
+            <p>read</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
