@@ -1,4 +1,5 @@
 const display = document.querySelector(".display");
+const formContainer = document.querySelector(".container");
 const submitBtn = document.querySelector("#submit");
 const log = console.log;
 
@@ -62,7 +63,7 @@ function updateDisplay(){
     });
 };
 
-// updateDisplay();
+
 
 // Event listener for submit button
 
