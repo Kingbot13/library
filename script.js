@@ -1,5 +1,6 @@
 const display = document.querySelector(".display");
 const formContainer = document.querySelector(".container");
+const newBookBtn = document.querySelector("#new-book");
 const submitBtn = document.querySelector("#submit");
 const log = console.log;
 
@@ -63,11 +64,16 @@ function updateDisplay(){
     });
 };
 
+// Event listner for new book button
 
+newBookBtn.addEventListener("click", () => {
+    formContainer.classList.toggle("hidden");
+});
 
 // Event listener for submit button
 
 submitBtn.addEventListener("click", () => {
     addBook();
     updateDisplay();
+    formContainer.classList.toggle("hidden");
 });
