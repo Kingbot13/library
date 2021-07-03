@@ -2,15 +2,17 @@ const display = document.querySelector(".display");
 const formContainer = document.querySelector(".container");
 const newBookBtn = document.querySelector("#new-book");
 const submitBtn = document.querySelector("#submit");
+const nodes = document.querySelectorAll(".card");
 const log = console.log;
 
 let myLibrary = [];
 
-function Book(author, title, pages, read){
+function Book(author, title, pages, read, exists){
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.exists = exists;
 };
 
 function addBook(){
@@ -19,46 +21,65 @@ function addBook(){
     let title = document.querySelector("#title").value;
     let pages = document.querySelector("#pages").value;
     let read = document.querySelector("#read").value;
+    let exists = false;
 
-    let book = new Book(author, title, pages, read);
+    let book = new Book(author, title, pages, read, exists);
 
     // push book to array
 
     myLibrary.push(book);
 };
 
+// check node length and delete if nodelist larger than 1
+
+// function checkNodeLength(){
+//     if (nodes.length > 1){
+//         nodes.forEach((node) => {
+//             node.remove();
+//         });
+//     };
+// };
+
 // loop through array and update display
 
 function updateDisplay(){
+
+
+
     myLibrary.forEach((item) => {
-        // create div to hold components
-        let card = document.createElement("div");
-        card.classList.add("card");
-        // create text to append to card variable
-        let author = document.createElement("p");
-        let title = document.createElement("p");
-        let pages = document.createElement("p");
-        let isRead = document.createElement("p");
 
-        author.textContent = item.author;
-        title.textContent = item.title;
-        pages.textContent = `Pages: ${item.pages}`;
+        if (item.exists === false){
 
-        if (item.isRead === true){
-            isRead.textContent = "Read: Yes";
-
-        } else {
-            isRead.textContent = "Read: No";
+            // create div to hold components
+            let card = document.createElement("div");
+            card.classList.add("card");
+            // create text to append to card variable
+            let author = document.createElement("p");
+            let title = document.createElement("p");
+            let pages = document.createElement("p");
+            let isRead = document.createElement("p");
+            
+            author.textContent = item.author;
+            title.textContent = item.title;
+            pages.textContent = `Pages: ${item.pages}`;
+            
+            if (item.isRead === true){
+                isRead.textContent = "Read: Yes";
+                
+            } else {
+                isRead.textContent = "Read: No";
+            };
+            
+            let textArray = [author, title, pages, isRead];
+            
+            // loop through text content to append to card
+            textArray.forEach((text) => {
+                card.appendChild(text);
+            });
+            
+            display.appendChild(card);
+            item.exists = true;
         };
-
-        let textArray = [author, title, pages, isRead];
-
-        // loop through text content to append to card
-        textArray.forEach((text) => {
-            card.appendChild(text);
-        });
-
-        display.appendChild(card);
     });
 };
 
@@ -75,3 +96,4 @@ submitBtn.addEventListener("click", () => {
     updateDisplay();
     formContainer.classList.toggle("hidden");
 });
+
