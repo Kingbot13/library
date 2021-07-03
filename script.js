@@ -30,25 +30,13 @@ function addBook(){
     myLibrary.push(book);
 };
 
-// check node length and delete if nodelist larger than 1
-
-// function checkNodeLength(){
-//     if (nodes.length > 1){
-//         nodes.forEach((node) => {
-//             node.remove();
-//         });
-//     };
-// };
-
 // loop through array and update display
 
 function updateDisplay(){
 
-
-
     myLibrary.forEach((item) => {
 
-        if (item.exists === false){
+        if (item.exists === false){ // prevent duplicates
 
             // create div to hold components
             let card = document.createElement("div");
@@ -63,7 +51,7 @@ function updateDisplay(){
             title.textContent = item.title;
             pages.textContent = `Pages: ${item.pages}`;
             
-            if (item.isRead === true){
+            if (item.read === true){
                 isRead.textContent = "Read: Yes";
                 
             } else {
