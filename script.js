@@ -20,7 +20,7 @@ function addBook(){
     let author = document.querySelector("#author").value;
     let title = document.querySelector("#title").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").value;
+    let read = document.querySelector("#read");
     let exists = false;
 
     let book = new Book(author, title, pages, read, exists);
@@ -51,7 +51,7 @@ function updateDisplay(){
             title.textContent = item.title;
             pages.textContent = `Pages: ${item.pages}`;
             
-            if (item.read === true){
+            if (item.read.checked === true){
                 isRead.textContent = "Read: Yes";
                 
             } else {
