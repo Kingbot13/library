@@ -32,12 +32,15 @@ function addBook(){
 
 // loop through array and update display
 
+// create remove button
+let removeBtn = document.createElement("button");
+removeBtn.textContent = "Remove";
+
 function updateDisplay(){
 
     myLibrary.forEach((item) => {
 
         if (item.exists === false){ // prevent duplicates
-
             // create div to hold components
             let card = document.createElement("div");
             card.classList.add("card");
@@ -58,7 +61,7 @@ function updateDisplay(){
                 isRead.textContent = "Read: No";
             };
             
-            let textArray = [author, title, pages, isRead];
+            let textArray = [author, title, pages, isRead, removeBtn];
             
             // loop through text content to append to card
             textArray.forEach((text) => {
