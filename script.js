@@ -44,7 +44,7 @@ function updateDisplay(){
             let removeBtn = document.createElement("button");
             removeBtn.textContent = "Remove";
             removeBtn.classList.add("remove");
-            removeBtn.onclick(removeBook());
+
             // create div to hold components
             let card = document.createElement("div");
             card.classList.add("card");
@@ -83,12 +83,24 @@ function updateDisplay(){
         };
     });
 };
-function removeBook(){
-    myLibrary.splice(card.getAttribute("data-key"), 1);
-    updateDisplay();
-    console.log("button has been clicked");
 
-};
+// add remove button outside of update function
+
+// function addRemoveBtn(){
+//     nodes.forEach((card) => {
+//         let removeBtn = document.createElement("button");
+//         removeBtn.textContent = "Remove";
+//         removeBtn.classList.add("remove");
+//         card.appendChild(removeBtn);
+//     });
+// };
+
+// function removeBook(){
+//     myLibrary.splice(card.getAttribute("data-key"), 1);
+//     updateDisplay();
+//     console.log("button has been clicked");
+//     alert("button works");
+// };
 
 // Event listner for new book button
 
@@ -101,6 +113,7 @@ newBookBtn.addEventListener("click", () => {
 submitBtn.addEventListener("click", () => {
     addBook();
     updateDisplay();
+    // addRemoveBtn();
     formContainer.classList.toggle("hidden");
 });
 
