@@ -32,18 +32,27 @@ function addBook(){
 
 // loop through array and update display
 
-// create remove button
-let removeBtn = document.createElement("button");
-removeBtn.textContent = "Remove";
 
 function updateDisplay(){
-
+    
+    let i = 0;
+    
     myLibrary.forEach((item) => {
-
+        
         if (item.exists === false){ // prevent duplicates
+            // create remove button
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.classList.add("remove");
+            removeBtn.onclick(removeBook());
             // create div to hold components
             let card = document.createElement("div");
             card.classList.add("card");
+
+            // set data attribute to card
+            
+            card.setAttribute("data-key", i);
+
             // create text to append to card variable
             let author = document.createElement("p");
             let title = document.createElement("p");
@@ -70,8 +79,15 @@ function updateDisplay(){
             
             display.appendChild(card);
             item.exists = true;
+            i++
         };
     });
+};
+function removeBook(){
+    myLibrary.splice(card.getAttribute("data-key"), 1);
+    updateDisplay();
+    console.log("button has been clicked");
+
 };
 
 // Event listner for new book button
@@ -87,4 +103,18 @@ submitBtn.addEventListener("click", () => {
     updateDisplay();
     formContainer.classList.toggle("hidden");
 });
+
+// Event listener for remove button
+
+let removeBtnList = document.querySelectorAll(".remove");
+
+// removeBtnList.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+        // myLibrary.splice(card.getAttribute("data-key"), 1);
+        // updateDisplay();
+        // console.log("button has been clicked");
+
+//     });
+// });
+
 
