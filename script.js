@@ -99,37 +99,41 @@ newBookBtn.addEventListener("click", () => {
 
 document.addEventListener("click", (e) => {
     if (e.target.className.includes("remove")){
-        log(e);
-        log(e.target);
-        log(e.path);
         let card = parseInt(e.path[1].dataset.key);
         myLibrary.splice(card, 1);
-        log(card);
         display.removeChild(display.childNodes[card]);
     };
 });
 
-// function removeBtnLogic() {
-//     let removeBtnList = document.querySelectorAll(".remove");
+// Event listener for toggle read button
 
-    
-//     removeBtnList.forEach((btn) => {
-//         btn.addEventListener("click", () => {
-//             let card = parseInt(btn.parentNode.dataset.key);
-//             myLibrary.splice(card, 1);
-//             log(card);
-//             display.removeChild(display.childNodes[card]);
-//             // alert("button has been clicked");
-//         });
-//     });
-// };
+document.addEventListener("click", (e) => {
+    if (e.target.className.includes("read-btn")){
+        let card = parseInt(e.path[1].dataset.key);
+        let cardContainer = document.querySelector(`[data-key="${card}"]`);
+        let text = cardContainer.childNodes[3];
+        log("text:", text);
+        let book = myLibrary[card];
+        if (book.read === true){
+            book.read = false;
+            text.textContent = "Read: No";
+        } else {
+            book.read = true;
+            text.textContent = "Read: Yes";
+        };
+        // book.read === true ? book.read = false : book.read = true;
+        // book.read === true ? text.textContent = "Read: Yes" : text.textContent = "Read: No";
+        log(book.read);
+    };
+});
+
+
 
 // Event listener for submit button
 
 submitBtn.addEventListener("click", () => {
     addBook();
     updateDisplay();
-    // removeBtnLogic();
     formContainer.classList.toggle("hidden");
 });    
 
