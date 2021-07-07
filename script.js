@@ -92,27 +92,39 @@ newBookBtn.addEventListener("click", () => {
 
 // Event listener for remove button
 
-function removeBtnLogic() {
-    let removeBtnList = document.querySelectorAll(".remove");
+document.addEventListener("click", (e) => {
+    if (e.target.className.includes("remove")){
+        log(e);
+        log(e.target);
+        log(e.path);
+        let card = parseInt(e.path[1].dataset.key);
+        myLibrary.splice(card, 1);
+        log(card);
+        display.removeChild(display.childNodes[card]);
+    };
+});
+
+// function removeBtnLogic() {
+//     let removeBtnList = document.querySelectorAll(".remove");
 
     
-    removeBtnList.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            let card = parseInt(btn.parentNode.dataset.key);
-            myLibrary.splice(card, 1);
-            log(card);
-            display.removeChild(display.childNodes[card]);
-            // alert("button has been clicked");
-        });
-    });
-};
+//     removeBtnList.forEach((btn) => {
+//         btn.addEventListener("click", () => {
+//             let card = parseInt(btn.parentNode.dataset.key);
+//             myLibrary.splice(card, 1);
+//             log(card);
+//             display.removeChild(display.childNodes[card]);
+//             // alert("button has been clicked");
+//         });
+//     });
+// };
 
 // Event listener for submit button
 
 submitBtn.addEventListener("click", () => {
     addBook();
     updateDisplay();
-    removeBtnLogic();
+    // removeBtnLogic();
     formContainer.classList.toggle("hidden");
 });    
 
