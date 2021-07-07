@@ -53,6 +53,11 @@ function updateDisplay(){
             // set data attribute to card
             card.setAttribute("data-key", i);
 
+            // create toggle read button
+            let readBtn = document.createElement("button");
+            readBtn.textContent = "Toggle Read";
+            readBtn.classList.add("read-btn");
+
             // create text to append to card variable
             let author = document.createElement("p");
             let title = document.createElement("p");
@@ -70,9 +75,9 @@ function updateDisplay(){
                 isRead.textContent = "Read: No";
             };
             
-            let textArray = [author, title, pages, isRead, removeBtn];
+            let textArray = [author, title, pages, isRead, removeBtn, readBtn];
             
-            // loop through text content to append to card
+            // loop through text content and buttons to append to card
             textArray.forEach((text) => {
                 card.appendChild(text);
             });
