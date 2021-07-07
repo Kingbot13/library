@@ -94,12 +94,15 @@ newBookBtn.addEventListener("click", () => {
 
 function removeBtnLogic() {
     let removeBtnList = document.querySelectorAll(".remove");
+
     
     removeBtnList.forEach((btn) => {
         btn.addEventListener("click", () => {
-            // myLibrary.splice(card.getAttribute("data-key"), 1);
-            // updateDisplay();
-            alert("button has been clicked");
+            let card = parseInt(btn.parentNode.dataset.key);
+            myLibrary.splice(card, 1);
+            log(card);
+            display.removeChild(display.childNodes[card]);
+            // alert("button has been clicked");
         });
     });
 };
