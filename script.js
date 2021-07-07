@@ -35,11 +35,12 @@ function addBook(){
 
 function updateDisplay(){
     
-    let i = 0;
+    let i = 0; // used to set data attribute
     
     myLibrary.forEach((item) => {
         
         if (item.exists === false){ // prevent duplicates
+
             // create remove button
             let removeBtn = document.createElement("button");
             removeBtn.textContent = "Remove";
@@ -50,7 +51,6 @@ function updateDisplay(){
             card.classList.add("card");
 
             // set data attribute to card
-            
             card.setAttribute("data-key", i);
 
             // create text to append to card variable
@@ -84,50 +84,34 @@ function updateDisplay(){
     });
 };
 
-// add remove button outside of update function
-
-// function addRemoveBtn(){
-//     nodes.forEach((card) => {
-//         let removeBtn = document.createElement("button");
-//         removeBtn.textContent = "Remove";
-//         removeBtn.classList.add("remove");
-//         card.appendChild(removeBtn);
-//     });
-// };
-
-// function removeBook(){
-//     myLibrary.splice(card.getAttribute("data-key"), 1);
-//     updateDisplay();
-//     console.log("button has been clicked");
-//     alert("button works");
-// };
-
 // Event listner for new book button
 
 newBookBtn.addEventListener("click", () => {
     formContainer.classList.toggle("hidden");
 });
 
+// Event listener for remove button
+
+function removeBtnLogic() {
+    let removeBtnList = document.querySelectorAll(".remove");
+    
+    removeBtnList.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            // myLibrary.splice(card.getAttribute("data-key"), 1);
+            // updateDisplay();
+            alert("button has been clicked");
+        });
+    });
+};
+
 // Event listener for submit button
 
 submitBtn.addEventListener("click", () => {
     addBook();
     updateDisplay();
-    // addRemoveBtn();
+    removeBtnLogic();
     formContainer.classList.toggle("hidden");
-});
+});    
 
-// Event listener for remove button
-
-let removeBtnList = document.querySelectorAll(".remove");
-
-// removeBtnList.forEach((btn) => {
-//     btn.addEventListener("click", () => {
-        // myLibrary.splice(card.getAttribute("data-key"), 1);
-        // updateDisplay();
-        // console.log("button has been clicked");
-
-//     });
-// });
 
 
