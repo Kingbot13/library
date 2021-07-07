@@ -32,10 +32,10 @@ function addBook(){
 
 // loop through array and update display
 
+let i = 0; // used to set data attribute
 
 function updateDisplay(){
     
-    let i = 0; // used to set data attribute
     
     myLibrary.forEach((item) => {
         
@@ -89,6 +89,12 @@ function updateDisplay(){
     });
 };
 
+function resetData() {
+    for (let i = 0; i < display.childNodes.length; i++){
+        display.childNodes[i].setAttribute("data-key", i);
+    };
+};
+
 // Event listner for new book button
 
 newBookBtn.addEventListener("click", () => {
@@ -102,6 +108,8 @@ document.addEventListener("click", (e) => {
         let card = parseInt(e.path[1].dataset.key);
         myLibrary.splice(card, 1);
         display.removeChild(display.childNodes[card]);
+        resetData();
+        i = myLibrary.length; // reset after remove button is clicked
     };
 });
 
@@ -112,8 +120,11 @@ document.addEventListener("click", (e) => {
         let card = parseInt(e.path[1].dataset.key);
         let cardContainer = document.querySelector(`[data-key="${card}"]`);
         let text = cardContainer.childNodes[3];
+        log("card:", card);
+        log("card container:", cardContainer);
         log("text:", text);
         let book = myLibrary[card];
+        log("book", book);
         if (book.read === true){
             book.read = false;
             text.textContent = "Read: No";
