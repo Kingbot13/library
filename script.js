@@ -132,8 +132,7 @@ document.addEventListener("click", (e) => {
             book.read = true;
             text.textContent = "Read: Yes";
         };
-        // book.read === true ? book.read = false : book.read = true;
-        // book.read === true ? text.textContent = "Read: Yes" : text.textContent = "Read: No";
+        
         log(book.read);
     };
 });
@@ -143,9 +142,17 @@ document.addEventListener("click", (e) => {
 // Event listener for submit button
 
 submitBtn.addEventListener("click", () => {
-    addBook();
-    updateDisplay();
-    formContainer.classList.toggle("hidden");
+
+    let author = document.querySelector("#author");
+    let title = document.querySelector("#title");
+    let pages = document.querySelector("#pages");
+
+    if (author.checkValidity() && title.checkValidity() && pages.checkValidity()) {
+
+        addBook();
+        updateDisplay();
+        formContainer.classList.toggle("hidden");
+    };
 });    
 
 

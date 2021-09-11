@@ -11,9 +11,9 @@
     <button id="new-book">NEW BOOK</button>
     <div class="container hidden">
         <form action="">
-            <label for="author"><input type="text" id="author" name="author" placeholder="Author"></label>
-            <label for="title"><input type="text" id="title" name="title" placeholder="Title"></label>
-            <label for="pages"><input type="text" id="pages" name="pages" placeholder="Number of pages"></label>
+            <label for="author"><input type="text" id="author" name="author" placeholder="Author" required></label>
+            <label for="title"><input type="text" id="title" name="title" placeholder="Title" required></label>
+            <label for="pages"><input type="text" id="pages" name="pages" placeholder="Number of pages" min="1"></label>
             <label for="read">Read<input type="checkbox" id="read" name="read"></label>
             <button type="button" id="submit">Submit</button>
         </form>

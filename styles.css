@@ -18,6 +18,10 @@ input{
     margin-left: 25px;
 }
 
+input:invalid {
+    border: 1px solid red;
+}
+
 .container{
     display: flex;
     width: 600px;
